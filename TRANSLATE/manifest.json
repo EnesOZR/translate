@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Çeviri & Form Otomasyon Asistanı",
+  "version": "2.1.0",
+  "description": "GKM Oppo form otomasyonu: Ctrl+B ile çeviri açma/kapama, bellek önbelleği, otomatik None seçimi ve Roma rakamı koruması.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "https://translate.googleapis.com/*",
+    "*://gkm.oppo.com/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Çeviri & Form Otomasyon Ayarları",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

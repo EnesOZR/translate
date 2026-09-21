@@ -1,0 +1,163 @@
+/* ==========================================================
+   POPUP STYLES - APPLE EXECUTIVE BEIGE THEME
+   ========================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 330px;
+  background: #fbf9f5;
+  color: #24201c;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.popup-container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Header */
+.popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(212, 203, 189, 0.85);
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-badge {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(180deg, #f7f4ed 0%, #ece5d8 100%);
+  border: 1px solid rgba(212, 203, 189, 0.9);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  box-shadow: 0 2px 6px rgba(45, 35, 25, 0.08);
+}
+
+.brand-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #24201c;
+  letter-spacing: -0.01em;
+}
+
+.brand-subtitle {
+  font-size: 11px;
+  color: #786e64;
+}
+
+.version-badge {
+  font-size: 10.5px;
+  font-weight: 700;
+  background: rgba(180, 165, 145, 0.25);
+  color: #52473c;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  border: 0.5px solid rgba(180, 165, 145, 0.35);
+}
+
+/* Sections */
+.section-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btn-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 14px;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  letter-spacing: -0.01em;
+}
+
+.action-btn:active {
+  transform: scale(0.98);
+}
+
+.action-btn.primary {
+  background: #24201c;
+  color: #faf8f5;
+  border-color: #161310;
+  box-shadow: 0 2px 6px rgba(36, 32, 28, 0.18);
+  width: 100%;
+}
+
+.action-btn.primary:hover {
+  background: #3a342e;
+}
+
+.action-btn.secondary {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(214, 205, 191, 0.9);
+  color: #2c2722;
+  box-shadow: 0 1px 2px rgba(45, 35, 25, 0.05);
+}
+
+.action-btn.secondary:hover {
+  background: #ffffff;
+  border-color: rgba(185, 173, 156, 0.95);
+}
+
+.status-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: 9px;
+  background: rgba(27, 99, 56, 0.08);
+  border: 1px solid rgba(27, 99, 56, 0.24);
+  color: #1b6338;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 7.5px;
+  height: 7.5px;
+  border-radius: 50%;
+  background: #1b6338;
+  box-shadow: 0 0 0 2px rgba(27, 99, 56, 0.15);
+}
+
+.popup-footer {
+  text-align: center;
+  font-size: 10.5px;
+  color: #968c80;
+  padding-top: 6px;
+  border-top: 1px solid rgba(224, 216, 204, 0.7);
+}

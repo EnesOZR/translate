@@ -1,0 +1,398 @@
+/* ==========================================================
+   ÇEVİRİ & FORM OTOMASYONU - APPLE İLHAMLI BEJ / RESMİ TASARIM
+   ========================================================== */
+
+:root {
+  --tr-bg-card: rgba(251, 249, 245, 0.94);
+  --tr-bg-header: linear-gradient(180deg, #f7f4ed 0%, #ece5d8 100%);
+  --tr-border: rgba(212, 203, 189, 0.85);
+  --tr-border-highlight: rgba(255, 255, 255, 0.9);
+  --tr-border-subtle: rgba(224, 216, 204, 0.7);
+
+  --tr-text-primary: #24201c;
+  --tr-text-secondary: #6e6459;
+  --tr-text-muted: #968c80;
+
+  --tr-apple-green: #1b6338;
+  --tr-apple-green-bg: rgba(27, 99, 56, 0.08);
+  --tr-apple-green-border: rgba(27, 99, 56, 0.24);
+
+  --tr-apple-inactive: #6b6359;
+  --tr-apple-inactive-bg: rgba(107, 99, 89, 0.07);
+  --tr-apple-inactive-border: rgba(107, 99, 89, 0.2);
+
+  --tr-btn-primary-bg: #24201c;
+  --tr-btn-primary-text: #faf8f5;
+  --tr-btn-primary-hover: #3a342e;
+
+  --tr-btn-secondary-bg: rgba(255, 255, 255, 0.82);
+  --tr-btn-secondary-border: rgba(214, 205, 191, 0.9);
+  --tr-btn-secondary-text: #2c2722;
+  --tr-btn-secondary-hover: #ffffff;
+
+  --tr-shadow-card: 0 16px 40px -6px rgba(45, 35, 25, 0.12), 0 4px 16px -2px rgba(45, 35, 25, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --tr-shadow-btn: 0 1px 2px rgba(45, 35, 25, 0.05);
+  --tr-radius-card: 16px;
+  --tr-radius-btn: 9px;
+}
+
+#tr-auto-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999999;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Compact Text", "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--tr-text-primary);
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#tr-auto-widget * {
+  box-sizing: border-box;
+}
+
+/* Ana Kart */
+.tr-widget-card {
+  background: var(--tr-bg-card);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--tr-border);
+  border-radius: var(--tr-radius-card);
+  box-shadow: var(--tr-shadow-card);
+  width: 326px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#tr-auto-widget.minimized .tr-widget-card {
+  display: none;
+}
+
+/* Küçültülmüş Hap (Pill) */
+.tr-widget-pill {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--tr-bg-card);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--tr-border);
+  border-radius: 9999px;
+  box-shadow: 0 8px 24px rgba(45, 35, 25, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  color: var(--tr-text-primary);
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tr-widget-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(45, 35, 25, 0.16);
+}
+
+#tr-auto-widget.minimized .tr-widget-pill {
+  display: flex;
+}
+
+/* Başlık Çubuğu (Apple macOS Pencere Çubuğu Stili) */
+.tr-widget-header {
+  padding: 10px 14px;
+  background: var(--tr-bg-header);
+  border-bottom: 1px solid var(--tr-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: grab;
+}
+
+.tr-widget-header:active {
+  cursor: grabbing;
+}
+
+.tr-widget-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 12.5px;
+  color: var(--tr-text-primary);
+  letter-spacing: -0.01em;
+}
+
+/* Apple 3'lü Nokta */
+.tr-apple-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 5.5px;
+  margin-right: 2px;
+}
+
+.tr-apple-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.tr-apple-dot.red { background: #ff5f56; border: 0.5px solid rgba(0, 0, 0, 0.12); }
+.tr-apple-dot.yellow { background: #ffbd2e; border: 0.5px solid rgba(0, 0, 0, 0.12); }
+.tr-apple-dot.green { background: #27c93f; border: 0.5px solid rgba(0, 0, 0, 0.12); }
+
+.tr-brand-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 1.5px 5.5px;
+  border-radius: 4px;
+  background: rgba(180, 165, 145, 0.25);
+  color: #52473c;
+  text-transform: uppercase;
+}
+
+.tr-icon-btn {
+  background: transparent;
+  border: none;
+  color: var(--tr-text-secondary);
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.15s ease;
+}
+
+.tr-icon-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--tr-text-primary);
+}
+
+/* Gövde */
+.tr-widget-body {
+  padding: 14px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* DURUM ROZETİ (AÇIK / KAPALI) */
+.tr-state-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 12px;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: all 0.2s ease;
+}
+
+.tr-state-badge.active {
+  background: var(--tr-apple-green-bg);
+  border: 1px solid var(--tr-apple-green-border);
+  color: var(--tr-apple-green);
+}
+
+.tr-state-badge.inactive {
+  background: var(--tr-apple-inactive-bg);
+  border: 1px solid var(--tr-apple-inactive-border);
+  color: var(--tr-apple-inactive);
+}
+
+.tr-badge-left {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.tr-dot {
+  width: 7.5px;
+  height: 7.5px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.tr-state-badge.active .tr-dot {
+  background: #1b6338;
+  box-shadow: 0 0 0 2.5px rgba(27, 99, 56, 0.15);
+  animation: tr-pulse 1.8s infinite ease-in-out;
+}
+
+.tr-state-badge.inactive .tr-dot {
+  background: #877e73;
+}
+
+.tr-badge-toggle-hint {
+  font-size: 10.5px;
+  font-weight: 500;
+  opacity: 0.75;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+/* Butonlar */
+.tr-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 9px 12px;
+  border-radius: var(--tr-radius-btn);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  letter-spacing: -0.01em;
+}
+
+.tr-btn:active {
+  transform: scale(0.98);
+}
+
+/* Ana Aksiyon Butonu */
+.tr-btn-primary {
+  background: #1b6338;
+  color: #ffffff;
+  border: 1px solid #144f2c;
+  box-shadow: 0 2px 6px rgba(27, 99, 56, 0.2);
+}
+
+.tr-btn-primary:hover {
+  background: #15522e;
+  box-shadow: 0 3px 8px rgba(27, 99, 56, 0.28);
+}
+
+.tr-btn-danger {
+  background: var(--tr-btn-primary-bg);
+  color: var(--tr-btn-primary-text);
+  border: 1px solid #161310;
+  box-shadow: 0 2px 6px rgba(36, 32, 28, 0.18);
+}
+
+.tr-btn-danger:hover {
+  background: var(--tr-btn-primary-hover);
+  box-shadow: 0 3px 8px rgba(36, 32, 28, 0.25);
+}
+
+/* Tek Tuşla Kopyalama Butonu */
+.tr-btn-copy {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--tr-btn-secondary-border);
+  color: var(--tr-text-primary);
+  box-shadow: var(--tr-shadow-btn);
+  width: 100%;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.tr-btn-copy:hover {
+  background: #ffffff;
+  border-color: rgba(185, 173, 156, 1);
+  box-shadow: 0 2px 6px rgba(45, 35, 25, 0.09);
+  transform: translateY(-1px);
+}
+
+.tr-copy-highlight {
+  animation: tr-copy-glow 0.8s ease-out;
+  border-radius: 6px;
+}
+
+@keyframes tr-copy-glow {
+  0% { outline: 3px solid rgba(27, 99, 56, 0.6); background-color: rgba(27, 99, 56, 0.05); }
+  100% { outline: 3px solid transparent; background-color: transparent; }
+}
+
+/* İkincil Butonlar */
+.tr-btn-secondary {
+  background: var(--tr-btn-secondary-bg);
+  border: 1px solid var(--tr-btn-secondary-border);
+  color: var(--tr-btn-secondary-text);
+  box-shadow: var(--tr-shadow-btn);
+}
+
+.tr-btn-secondary:hover {
+  background: var(--tr-btn-secondary-hover);
+  border-color: rgba(185, 173, 156, 0.95);
+  box-shadow: 0 2px 5px rgba(45, 35, 25, 0.08);
+}
+
+.tr-btn-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+/* ROMA RAKAMI UYARI KUTUSU */
+.tr-alert-box {
+  display: none;
+  padding: 8px 11px;
+  border-radius: 8px;
+  background: rgba(217, 119, 6, 0.09);
+  border: 1px solid rgba(217, 119, 6, 0.28);
+  color: #8f4d00;
+  font-size: 11.5px;
+  line-height: 1.35;
+}
+
+.tr-alert-box.visible {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* Toast Bildirimleri (Apple Frosted Glass) */
+#tr-toast-container {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 10000001;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.tr-toast {
+  pointer-events: auto;
+  min-width: 250px;
+  max-width: 360px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(251, 249, 245, 0.95);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  color: var(--tr-text-primary);
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid var(--tr-border);
+  box-shadow: 0 12px 32px rgba(45, 35, 25, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.tr-toast.success { border-left: 3.5px solid #1b6338; }
+.tr-toast.warning { border-left: 3.5px solid #d97706; }
+.tr-toast.error { border-left: 3.5px solid #dc2626; }
+.tr-toast.info { border-left: 3.5px solid #6e6459; }
+
+@keyframes tr-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.7; }
+}

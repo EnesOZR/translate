@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Çeviri & Form Asistanı</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <div class="popup-header">
+      <div class="header-brand">
+        <div class="logo-badge" style="font-size: 11px; font-weight: 700; color: #1b6338;">TR</div>
+        <div>
+          <div class="brand-title">Çeviri Asistanı</div>
+          <div class="brand-subtitle">Oppo GKM Form Otomasyonu</div>
+        </div>
+      </div>
+      <div class="version-badge">v2.1</div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="section-box">
+      <button class="action-btn primary" id="btn-toggle-tr">
+        <span>Çeviriyi Aç / Kapat (Ctrl + B)</span>
+      </button>
+
+      <div class="btn-row">
+        <button class="action-btn secondary" id="btn-check-none">
+          <span>None Seç</span>
+        </button>
+        <button class="action-btn secondary" id="btn-reload-page">
+          <span>Yenile</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Live Status Banner -->
+    <div class="status-card" id="popup-status">
+      <span class="status-dot"></span>
+      <span id="popup-status-text">Kısayol: <strong>Ctrl + B</strong></span>
+    </div>
+
+    <div style="background: rgba(240, 235, 226, 0.6); padding: 10px 12px; border-radius: 9px; border: 1px solid rgba(214, 205, 191, 0.85); font-size: 11.5px; color: #6e6459; line-height: 1.4;">
+      <strong>Bellek Özelliği:</strong> Bir kez <code>Ctrl + B</code> ile çevirdiğinizde metinler bellekte saklanır. Tekrar <code>Ctrl + B</code> yaparak anında orijinal İngilizce ve Türkçe arasında geçiş yapabilirsiniz.
+    </div>
+
+    <!-- Footer -->
+    <div class="popup-footer">
+      <span>GKM Oppo • Otomatik None Seçimi & Roma Rakamı Koruması</span>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
