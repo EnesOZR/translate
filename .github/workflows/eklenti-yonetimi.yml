@@ -1,0 +1,57 @@
+# Eklentiyi GitHub sitesinden yönetir: Actions > "Eklenti Yönetimi" > Run workflow.
+# İmza anahtarı yalnızca SIGNING_PRIVATE_KEY secret'ında durur; hiçbir adımda ekrana yazılmaz.
+name: Eklenti Yönetimi
+
+on:
+  workflow_dispatch:
+    inputs:
+      islem:
+        description: 'Ne yapılsın?'
+        required: true
+        type: choice
+        options:
+          - kilitle
+          - ac
+      neden:
+        description: 'Kilitleme nedeni (kilit ekranında görünür)'
+        required: false
+        default: 'Bakım çalışması'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eklenti-yonetimi
+  cancel-in-progress: false
+
+jobs:
+  imzala-ve-yayinla:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Bildirimi imzala
+        env:
+          TRANSLATOR_SIGNING_KEY_JWK: ${{ secrets.SIGNING_PRIVATE_KEY }}
+          ISLEM: ${{ inputs.islem }}
+          NEDEN: ${{ inputs.neden }}
+        run: |
+          if [ "$ISLEM" = "kilitle" ]; then
+            node scripts/sign_release.mjs --payload version.payload.json --out version.json --disable "$NEDEN"
+          else
+            node scripts/sign_release.mjs --payload version.payload.json --out version.json
+          fi
+
+      - name: version.json'ı yayınla
+        env:
+          ISLEM: ${{ inputs.islem }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add version.json
+          git commit -m "Eklenti yönetimi: $ISLEM"
+          git push
