@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "latest": "release-22-1102",
+  "status": "active",
+  "reason": null,
+  "download": "https://github.com/EnesOZR/translate/releases/latest",
+  "package": {
+    "name": "translator-release-22-1102.zip",
+    "sha256": "5d32c2708ac3986102a2683e8296dd9bf37b286a29e9989a79d3a458f504fb90"
+  },
+  "files": {
+    "manifest.json": "150b3af21bade15ba283a71d61888195134accdf56354b2cea806dfed18e9933",
+    "background.js": "41a29012e5feb0d7ac68a9da89822fb38c7095567bd2be3df33248abf119c856",
+    "content.js": "8925e6c68b13045fb9e365ffaeadda115717c653c3a3be9287a63e6a090d5b3b",
+    "content.css": "1f87bc58ac2c8e49ebc6d217ff7de5078ba68221cc37781aafe108196e5fb718",
+    "page_hook.js": "8b205443da1b59df2afad1a9393a324d5773a6442482a2a8f336ebcd65c11bfe",
+    "popup/popup.html": "82b1fdc043de557d4c3e98cfb88b12c9d169893455d7d2e1fc0ad69036131400",
+    "popup/popup.js": "6b881ce239d62b0d318383d590ac3d5c718555613a947df332588338e67b89db",
+    "popup/popup.css": "cd45de2cb8f1b1532e56cf2c0cf0104a466901226cc18900ecf3c96214aaab6f"
+  }
+}
