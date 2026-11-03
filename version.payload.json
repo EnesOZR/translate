@@ -6,21 +6,21 @@
   "download": "https://github.com/EnesOZR/translate/releases/latest",
   "package": {
     "name": "translator-release-22-1102.zip",
-    "sha256": "9c6cf7594f35430143cecdc19b0367233b39ceac7d1f156e1115ed61764700e0"
+    "sha256": "a7fbe8f9c74184c6ed88335dc807762837f28af9abdac3f10f2d04d1325713d8"
   },
   "files": {
     "manifest.json": "535b1ff2d66ae16136d5fdf633ea2ba93eedebb02d2e8da623b34b0f81864633",
-    "background.js": "1be0ecfd2e98b9c1364105558cf2a359eee529629bf1ab5497a53495910465ab",
+    "background.js": "48d896e9cf65df433f4fe25552df22e6b3bf4215a25d4c15982e71d36083e7ac",
     "terminology.js": "e9d2d1918a158889135c1d85e061095d5a0b504eb5afcb50048068b3c08e5d57",
-    "tm_core.js": "0e966b7c364a39c8f3f5d5c2d13350574d84245eefd53581c8106f8ca2158c45",
+    "tm_core.js": "b35143dd9ba655bafdc7160d244a350841526feea935d62a584af34a395c9e58",
     "tm/tm.html": "ecab08f14eda86c70e9ae15843ade85ef2540e89d9e0756b48f7b03ecc50798d",
-    "tm/tm.js": "584d6b015cd0894fac9ea4ac20ab93a93b2eebb50c51e198544027e3bdae06d1",
+    "tm/tm.js": "0cd7524ebd82cb127c78d24704d4d547c23082080514df8fd29cfa26e9d445a9",
     "tm/tm.css": "02cf0f826a7ca03fce2dc72e41b5cbaffe2f25038ab9b948f77586b0a4fee1ea",
-    "content.js": "d3b0f78be8f12dbdd2f1c597e46fcd7877ab9f7b5295dc291c0adfe1b27e45b4",
+    "content.js": "2f07ad8dbcc695562c17c3ed2671572fa2272ea5fab9cefc077e6dd759142f72",
     "content.css": "ef8af03e41a0175908a5217316e4999438389cae4cc703587f32a07d6a76b973",
     "page_hook.js": "fa56ce15505979ed964ed993256ce88aea0c9489db0928c3d1de35ae60a591d8",
     "popup/popup.html": "b1dcb04c7c41df6d3091a350abdcc1de9fe9487400f94b93566af0117ecaafc5",
-    "popup/popup.js": "fbccc260eae65454bf8ce6830963e4fb2b282746486323967c07328e75cb985c",
+    "popup/popup.js": "5674f328f6f9e67fb2f0781463452edb7fa4e066a74786c2e8c187395d9f0c9c",
     "popup/popup.css": "cd45de2cb8f1b1532e56cf2c0cf0104a466901226cc18900ecf3c96214aaab6f"
   }
 }
